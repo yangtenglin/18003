@@ -87,6 +87,21 @@ app.post('/api/experiment', (req, res) => {
     experimentData.experiments = experimentData.experiments.slice(0, 100);
   }
   writeJSON('experiments.json', experimentData);
+  
+  const codexData = readJSON('codex.json');
+  const now = new Date().toISOString();
+  ingredients.forEach(ingId => {
+    if (!codexData.discovered[ingId]) {
+      codexData.discovered[ingId] = true;
+    }
+    if (!codexData.usageCount[ingId]) {
+      codexData.usageCount[ingId] = 0;
+    }
+    codexData.usageCount[ingId]++;
+    codexData.lastUsed[ingId] = now;
+  });
+  writeJSON('codex.json', codexData);
+  
   res.json(experiment);
 });
 
@@ -125,7 +140,38 @@ app.get('/api/materials/draw', (req, res) => {
   }
   const shuffled = pool.sort(() => Math.random() - 0.5);
   const drawn = shuffled.slice(0, parseInt(count));
-  res.json({ materials: drawn });
+  
+  const codexData = readJSON('codex.json');
+  let newlyDiscovered = [];
+  drawn.forEach(m => {
+    if (!codexData.discovered[m.id]) {
+      codexData.discovered[m.id] = true;
+      newlyDiscovered.push(m.id);
+    }
+  });
+  writeJSON('codex.json', codexData);
+  
+  res.json({ materials: drawn, newlyDiscovered });
+});
+
+app.get('/api/codex', (req, res) => {
+  const codexData = readJSON('codex.json');
+  const allMaterials = readJSON('materials.json').materials;
+  
+  const result = allMaterials.map(m => {
+    const discovered = !!codexData.discovered[m.id];
+    const usageCount = codexData.usageCount[m.id] || 0;
+    const lastUsed = codexData.lastUsed[m.id] || null;
+    return {
+      ...m,
+      discovered,
+      usageCount,
+      lastUsed
+    };
+  });
+  
+  const totalDiscovered = result.filter(m => m.discovered).length;
+  res.json({ materials: result, totalDiscovered, totalMaterials: result.length });
 });
 
 app.get('/api/stats', (req, res) => {

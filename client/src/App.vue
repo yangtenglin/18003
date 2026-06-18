@@ -66,6 +66,14 @@
         />
       </div>
 
+      <div v-show="activeTab === 'codex'" class="codex-section">
+        <MaterialCodex
+          :materials="codexMaterials"
+          :total-discovered="codexStats.totalDiscovered"
+          :total-materials="codexStats.totalMaterials"
+        />
+      </div>
+
       <div v-show="activeTab === 'history'" class="history-section">
         <ExperimentHistory
           :experiments="experiments"
@@ -83,6 +91,7 @@ import Cauldron from './components/Cauldron.vue'
 import ResultModal from './components/ResultModal.vue'
 import RecipeBook from './components/RecipeBook.vue'
 import ExperimentHistory from './components/ExperimentHistory.vue'
+import MaterialCodex from './components/MaterialCodex.vue'
 
 const activeTab = ref('lab')
 const availableMaterials = ref([])
@@ -94,6 +103,11 @@ const experiments = ref([])
 const allRecipes = ref([])
 const discoveredRecipes = ref([])
 const favorites = ref([])
+const codexMaterials = ref([])
+const codexStats = ref({
+  totalDiscovered: 0,
+  totalMaterials: 0
+})
 const stats = ref({
   totalExperiments: 0,
   successfulExperiments: 0,
@@ -105,21 +119,28 @@ const stats = ref({
 const tabs = [
   { id: 'lab', label: '实验室', icon: '⚗️' },
   { id: 'recipes', label: '配方书', icon: '📖' },
+  { id: 'codex', label: '材料图鉴', icon: '📚' },
   { id: 'history', label: '历史记录', icon: '📜' }
 ]
 
 async function fetchData() {
   try {
-    const [expRes, recipesRes, favRes, statsRes] = await Promise.all([
+    const [expRes, recipesRes, favRes, statsRes, codexRes] = await Promise.all([
       fetch('/api/experiments').then(r => r.json()),
       fetch('/api/recipes/discovered').then(r => r.json()),
       fetch('/api/favorites').then(r => r.json()),
-      fetch('/api/stats').then(r => r.json())
+      fetch('/api/stats').then(r => r.json()),
+      fetch('/api/codex').then(r => r.json())
     ])
     experiments.value = expRes.experiments || []
     discoveredRecipes.value = recipesRes.recipes || []
     favorites.value = favRes.favorites || []
     stats.value = statsRes
+    codexMaterials.value = codexRes.materials || []
+    codexStats.value = {
+      totalDiscovered: codexRes.totalDiscovered || 0,
+      totalMaterials: codexRes.totalMaterials || 0
+    }
   } catch (e) {
     console.error('获取数据失败:', e)
   }
@@ -135,11 +156,26 @@ async function fetchAllRecipes() {
   }
 }
 
+async function fetchCodex() {
+  try {
+    const res = await fetch('/api/codex')
+    const data = await res.json()
+    codexMaterials.value = data.materials || []
+    codexStats.value = {
+      totalDiscovered: data.totalDiscovered || 0,
+      totalMaterials: data.totalMaterials || 0
+    }
+  } catch (e) {
+    console.error('获取图鉴失败:', e)
+  }
+}
+
 async function drawMaterials() {
   try {
     const res = await fetch('/api/materials/draw?count=6')
     const data = await res.json()
     availableMaterials.value = data.materials || []
+    fetchCodex()
   } catch (e) {
     console.error('抽取材料失败:', e)
   }
@@ -343,7 +379,8 @@ onMounted(() => {
 }
 
 .recipes-section,
-.history-section {
+.history-section,
+.codex-section {
   max-width: 1000px;
   margin: 0 auto;
 }

@@ -1,0 +1,20 @@
+{
+  "discovered": {
+    "wind_feather": true,
+    "shadow_ink": true,
+    "moonstone": true,
+    "water_crystal": true,
+    "fire_essence": true,
+    "earth_dust": true,
+    "ancient_rune": true,
+    "dragon_scale": true
+  },
+  "usageCount": {
+    "wind_feather": 1,
+    "mandrake_root": 1
+  },
+  "lastUsed": {
+    "wind_feather": "2026-06-18T14:29:08.392Z",
+    "mandrake_root": "2026-06-18T14:29:08.392Z"
+  }
+}
