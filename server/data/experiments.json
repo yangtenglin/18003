@@ -1,0 +1,52 @@
+{
+  "experiments": [
+    {
+      "id": 1781791835638,
+      "timestamp": "2026-06-18T14:10:35.638Z",
+      "ingredients": [
+        "wind_feather",
+        "mandrake_root"
+      ],
+      "success": true,
+      "recipeId": "speed_elixir",
+      "recipe": {
+        "id": "speed_elixir",
+        "name": "疾风药剂",
+        "description": "提升移动速度",
+        "ingredients": [
+          "wind_feather",
+          "mandrake_root"
+        ],
+        "result": {
+          "type": "elixir",
+          "effect": "speed",
+          "power": 25
+        },
+        "difficulty": 1,
+        "exp": 15,
+        "category": "buff"
+      },
+      "result": {
+        "type": "elixir",
+        "effect": "speed",
+        "power": 25
+      },
+      "expGained": 15,
+      "failurePenalty": 0
+    },
+    {
+      "id": 1781791733643,
+      "timestamp": "2026-06-18T14:08:53.643Z",
+      "ingredients": [
+        "fire_essence",
+        "fire_essence"
+      ],
+      "success": false,
+      "recipeId": null,
+      "recipe": null,
+      "result": null,
+      "expGained": 0,
+      "failurePenalty": 13
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "materials": [
+    {
+      "id": "fire_essence",
+      "name": "火焰精华",
+      "description": "炽热的火焰能量结晶",
+      "element": "fire",
+      "tier": 1,
+      "rarity": "common",
+      "color": "#FF6B35",
+      "icon": "🔥"
+    },
+    {
+      "id": "water_crystal",
+      "name": "水晶",
+      "description": "清澈的水之精华",
+      "element": "water",
+      "tier": 1,
+      "rarity": "common",
+      "color": "#4ECDC4",
+      "icon": "💧"
+    },
+    {
+      "id": "earth_dust",
+      "name": "大地之尘",
+      "description": "蕴含土元素的粉末",
+      "element": "earth",
+      "tier": 1,
+      "rarity": "common",
+      "color": "#A0522D",
+      "icon": "🌍"
+    },
+    {
+      "id": "wind_feather",
+      "name": "风之羽",
+      "description": "轻盈的风元素羽毛",
+      "element": "wind",
+      "tier": 1,
+      "rarity": "common",
+      "color": "#98D8C8",
+      "icon": "🪶"
+    },
+    {
+      "id": "mandrake_root",
+      "name": "曼德拉草根",
+      "description": "有魔力的植物根茎",
+      "element": "nature",
+      "tier": 1,
+      "rarity": "common",
+      "color": "#7CB342",
+      "icon": "🌿"
+    },
+    {
+      "id": "moonstone",
+      "name": "月光石",
+      "description": "蕴含月光能量的宝石",
+      "element": "light",
+      "tier": 1,
+      "rarity": "uncommon",
+      "color": "#E8E4F0",
+      "icon": "🌙"
+    },
+    {
+      "id": "shadow_ink",
+      "name": "暗影墨水",
+      "description": "漆黑如夜的神秘墨水",
+      "element": "dark",
+      "tier": 1,
+      "rarity": "uncommon",
+      "color": "#2C2C54",
+      "icon": "🌑"
+    },
+    {
+      "id": "phoenix_feather",
+      "name": "凤凰羽毛",
+      "description": "不死鸟的珍贵羽毛",
+      "element": "fire",
+      "tier": 2,
+      "rarity": "rare",
+      "color": "#FF4500",
+      "icon": "🪶"
+    },
+    {
+      "id": "dragon_scale",
+      "name": "龙鳞",
+      "description": "古老巨龙的鳞片",
+      "element": "fire",
+      "tier": 3,
+      "rarity": "legendary",
+      "color": "#DC143C",
+      "icon": "🐉"
+    },
+    {
+      "id": "mermaid_tear",
+      "name": "人鱼之泪",
+      "description": "人鱼的眼泪珍珠",
+      "element": "water",
+      "tier": 2,
+      "rarity": "rare",
+      "color": "#00CED1",
+      "icon": "🧜"
+    },
+    {
+      "id": "ancient_rune",
+      "name": "远古符文",
+      "description": "刻有神秘符文的石板",
+      "element": "arcane",
+      "tier": 2,
+      "rarity": "rare",
+      "color": "#9370DB",
+      "icon": "📜"
+    },
+    {
+      "id": "star_dust",
+      "name": "星尘",
+      "description": "来自星空的魔法尘埃",
+      "element": "light",
+      "tier": 2,
+      "rarity": "rare",
+      "color": "#FFD700",
+      "icon": "✨"
+    }
+  ]
+}

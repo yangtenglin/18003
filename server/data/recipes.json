@@ -1,0 +1,144 @@
+{
+  "recipes": [
+    {
+      "id": "health_potion",
+      "name": "治疗药水",
+      "description": "恢复生命值的基础药水",
+      "ingredients": ["mandrake_root", "water_crystal"],
+      "result": {
+        "type": "potion",
+        "effect": "heal",
+        "power": 50
+      },
+      "difficulty": 1,
+      "exp": 10,
+      "category": "potion"
+    },
+    {
+      "id": "fire_bolt_spell",
+      "name": "火球术卷轴",
+      "description": "发射火球的攻击法术",
+      "ingredients": ["fire_essence", "ancient_rune"],
+      "result": {
+        "type": "scroll",
+        "effect": "fire_damage",
+        "power": 30
+      },
+      "difficulty": 2,
+      "exp": 25,
+      "category": "attack"
+    },
+    {
+      "id": "shield_charm",
+      "name": "护盾护符",
+      "description": "提供魔法护盾的护符",
+      "ingredients": ["earth_dust", "moonstone"],
+      "result": {
+        "type": "charm",
+        "effect": "shield",
+        "power": 40
+      },
+      "difficulty": 2,
+      "exp": 20,
+      "category": "defense"
+    },
+    {
+      "id": "speed_elixir",
+      "name": "疾风药剂",
+      "description": "提升移动速度",
+      "ingredients": ["wind_feather", "mandrake_root"],
+      "result": {
+        "type": "elixir",
+        "effect": "speed",
+        "power": 25
+      },
+      "difficulty": 1,
+      "exp": 15,
+      "category": "buff"
+    },
+    {
+      "id": "shadow_cloak",
+      "name": "暗影斗篷",
+      "description": "隐身效果的魔法斗篷",
+      "ingredients": ["shadow_ink", "wind_feather"],
+      "result": {
+        "type": "artifact",
+        "effect": "invisibility",
+        "power": 60
+      },
+      "difficulty": 3,
+      "exp": 35,
+      "category": "utility"
+    },
+    {
+      "id": "starlight_beam",
+      "name": "星光术",
+      "description": "召唤星光攻击敌人",
+      "ingredients": ["star_dust", "moonstone"],
+      "result": {
+        "type": "scroll",
+        "effect": "light_damage",
+        "power": 45
+      },
+      "difficulty": 3,
+      "exp": 40,
+      "category": "attack"
+    },
+    {
+      "id": "phoenix_rebirth",
+      "name": "凤凰重生药剂",
+      "description": "传说中的复活药剂",
+      "ingredients": ["phoenix_feather", "fire_essence", "mandrake_root"],
+      "result": {
+        "type": "elixir",
+        "effect": "revive",
+        "power": 100
+      },
+      "difficulty": 4,
+      "exp": 80,
+      "category": "legendary"
+    },
+    {
+      "id": "tidal_wave",
+      "name": "潮汐巨浪",
+      "description": "召唤巨大海浪",
+      "ingredients": ["mermaid_tear", "water_crystal", "wind_feather"],
+      "result": {
+        "type": "scroll",
+        "effect": "water_damage",
+        "power": 55
+      },
+      "difficulty": 3,
+      "exp": 45,
+      "category": "attack"
+    },
+    {
+      "id": "stone_skin",
+      "name": "石肤术",
+      "description": "让皮肤坚硬如石",
+      "ingredients": ["earth_dust", "dragon_scale"],
+      "result": {
+        "type": "spell",
+        "effect": "defense_boost",
+        "power": 70
+      },
+      "difficulty": 4,
+      "exp": 60,
+      "category": "defense"
+    },
+    {
+      "id": "arcane_explosion",
+      "name": "奥术爆发",
+      "description": "强力的奥术能量爆炸",
+      "ingredients": ["ancient_rune", "star_dust", "shadow_ink"],
+      "result": {
+        "type": "spell",
+        "effect": "arcane_damage",
+        "power": 80
+      },
+      "difficulty": 5,
+      "exp": 100,
+      "category": "attack"
+    }
+  ]
+}
